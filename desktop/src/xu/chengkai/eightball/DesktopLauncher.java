@@ -8,7 +8,7 @@ import xu.chengkai.eightball.EightBallGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setWindowedMode(1000, 1000);
+		config.setWindowedMode(1220, 677);
 		config.setForegroundFPS(60);
 		config.setTitle("EightBall");
 		new Lwjgl3Application(new EightBallGame(), config);
