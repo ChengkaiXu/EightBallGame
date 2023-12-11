@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -19,7 +20,7 @@ import java.awt.*;
 
 public class EightBallGame extends ApplicationAdapter {
 	static SpriteBatch batch;
-	BitmapFont font;
+	static BitmapFont font;
 	static ShapeRenderer shapeRenderer;
 
 	PoolTable table;
@@ -36,7 +37,6 @@ public class EightBallGame extends ApplicationAdapter {
 	public void render() {
 		ScreenUtils.clear(0, 0, 0, 1);
 		table.render();
-		table.world.step(1 / 60f, 6, 2);
 	}
 	
 	@Override
