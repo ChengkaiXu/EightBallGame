@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.joints.FrictionJointDef;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -49,7 +50,15 @@ public class Ball {
         fixtureDef.restitution = 0.93f;
 
         Fixture fixture = body.createFixture(fixtureDef);
+
         circle.dispose();
+
+
+        FrictionJointDef frictionJointDef = new FrictionJointDef();
+        frictionJointDef.maxForce = 1000;
+        frictionJointDef.maxTorque = 0;
+        frictionJointDef.initialize(table.table, body, new Vector2(body.getPosition().x, body.getPosition().y));
+        table.world.createJoint(frictionJointDef);
 
 
         this.color = getRandomColor();
